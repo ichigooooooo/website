@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 10px;
+    color: #090a0a;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px; /* Adjusted padding for better responsiveness */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.navigation {
+    display: flex;
+}
+.home-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer; /* Change cursor to pointer on hover */
+  position: relative; /* Required for translation */
+  transition: transform 0.5s ease; /* Smooth transition for normal state */
+}
+
+.home-logo:hover {
+  transform: scale(4.5) translate(20px, 20px); /* Scale up and move right and down */
+  z-index: 1000; /* Optional: Bring it to the front */
+}
+
+
+.navigation a {
+    position: relative;
+    font-size: 1em; /* Adjusted font size for better readability */
+    color: #f0f8ff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px; /* Adjusted margin for spacing */
+}
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #f0f8ff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.home {
+    text-align: center;
+    padding: 100px 20px; /* Added padding for spacing and responsiveness */
+    position: relative;
+    z-index: 1; /* Ensure the home section is above the video */
+}
+.home-text {
+    max-width: 50%;
+    z-index: 1; /* Ensures text is above the background */
+    background: rgba(255, 0, 0, 0.5); /* Optional: Adds a semi-transparent background for better text readability */
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  .home-btn {
+    margin-top: 1rem;
+  }
+  .home-btn .btn {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #6188e1;
+    color: #080808;
+    text-decoration: none;
+  }
+  .home-btn .btn:hover {
+    background-color: #f4f4f4;
+  }
+/* Responsive design */
+@media (max-width: 768px) {
+    .home h1 {
+        font-size: 1.8rem; /* Adjust for smaller screens */
+        margin-bottom: 20px; /* Adjust spacing */
+    }
+}
+@media (max-width: 480px) {
+    .home h1 {
+        font-size: 1.5rem; /* Further adjust for very small screens */
+        margin-bottom: 15px; /* Adjust spacing */
+    }
+}
+.social-link {
+    color: #0004f0;
+    height: 100%;
+    width: 50%;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.social-link:hover {
+    color: #0464ca; /* Change this to your desired hover color */
+}
+footer {
+  height: 1px; /* Adjust the height as needed */
+  color: #fff; /* Optional: text color */
+  text-align: center; /* Center text within the footer */
+  padding: 10px; /* Optional: padding inside the footer */
+}
+/* Contact Section */
+#contact {
+    padding: 2rem; /* Adjust padding as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Allows absolute positioning within */
+}
+
+/* Fixed Position for Contact Form */
+.contact-item {
+    position: absolute; /* Fixes the form relative to the contact section */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the form exactly */
+    width: 100%; /* Optional: Adjust width as needed */
+    max-width: 500px; /* Set a max-width for better control */
+    z-index: 10; /* Ensure it is above other content */
+}
+
+/* Adjust the Contact Heading */
+.contact-heading {
+    position: fixed; /* Fixes the heading relative to the viewport */
+    top: 73px; /* Adjust to your desired top position */
+    left: 22px; /* Adjust to your desired left position */
+    font-size: 2rem; /* Font size */
+    color: #fffdfd; /* Text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    z-index: 10; /* Ensure it is above other elements */
+}
+
+/* Form controls with transparent background */
+.form-control {
+    width: 570%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: transparent; /* Make the background transparent */
+    color: #f0f8ff; /* Adjust text color for visibility against the background */
+}
+
+/* Specific styles for textarea to prevent resizing */
+textarea.form-control {
+    height: 150px; /* Set a fixed height for the textarea */
+    resize: none; /* Prevent the textarea from being resized */
+}
+
+/* Submit button with transparent background */
+.submit {
+    background-color: transparent; /* Make the background transparent */
+    color: #BBAB8C; /* Set a color for the text */
+    border: 2px solid #BBAB8C; /* Border color to make the button visible */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.submit:hover {
+    background-color: #BBAB8C; /* Button background color on hover */
+    color: white; /* Text color on hover */
+    border: 2px solid transparent; /* Remove border color on hover */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form elements horizontally */
+    max-width: 100%;
+}
+
+/* Social Media Links Container */
+.social-links {
+    position: fixed;
+    left: 290px; /* Distance from the left edge of the viewport */
+    top: 47%; /* Center vertically (adjust as needed) */
+    transform: translateY(-50%); /* Center vertically relative to the middle */
+    display: flex;
+    flex-direction: column; /* Arrange icons vertically */
+    align-items: center; /* Center icons horizontally within the container */
+    z-index: 1000; /* Ensure the container is above other content */
+}
+
+/* Individual Social Media Links */
+.social-link {
+    color: #0089ea; /* Icon color */
+    font-size: 2rem; /* Size of the icons */
+    margin: 10px 0; /* Space between icons vertically */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover Effect for Icons */
+.social-link:hover {
+    color: #f8e2e2; /* Change color on hover */
+}
+
+/* Font Awesome Icons Styling */
+.social-link i {
+    display: inline-block; /* Ensure proper alignment of the icons */
+}
+
+
+/* About Section */
+#about {
+    background-color: #535151;
+    color: #ffffff; /* Ensures text is readable against the background */
+    padding: 2rem; /* Adjust padding as needed */
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px; /* Adjust based on your layout */
+    margin: auto; /* Center-align the content */
+  }
+  
+  .profile-img {
+    width: 25%;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .about-text {
+    width: 60%;
+  }
+  
+  .hobbies-content {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between cards */
+    margin-top: 2rem;
+    margin-left: 20px;
+  }
+  
+  .card-hobbie {
+    width: 30%; /* Adjust width as needed */
+    background-color: #535151;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centers content inside the cards */
+    margin: 0 1rem; /* Adds horizontal space between cards */
+    margin-top: 100px; /* Adjust this value as needed */
+  }
+  
+  .card-hobbie .circle {
+    background-color: #e9ecef;
+    border-radius: 50%;
+    padding: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .quote-container {
+    display: flex;
+    align-items: center;
+    background-color: #686047;
+    padding: 20px;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+}
+
+.quote-image-link {
+    display: block;
+}
+
+.quote-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Hidden expanded image */
+.quote-image-expanded {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8); /* Optional: dark overlay */
+    border-radius: 10px;
+}
+
+/* Show the expanded image when targeted */
+#expand-image:target {
+    display: block;
+}
+
+.quote-image-expanded img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.quote-image-expanded .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: dark background for close button */
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.quote-image-expanded .close:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+  .quote-text {
+    font-style: italic;
+  }
+  
+  .quote-author {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .social-med {
+    margin-top: 10px;
+  }
+  
+  .social-link {
+    color: #007bff; /* Blue color for social links */
+    font-size: 24px;
+    margin-right: 15px;
+    text-decoration: none;
+  }
+  
+  .social-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Tech Stack Section */
+  .tech-stack-section {
+    padding: 2rem;
+    background-color:   #535151;
+    color: #ffffff;
+  }
+  
+  .tech-stack-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .tech-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: #535151;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tech-item h3 {
+    margin-top: 0;
+    color: #007bff;
+  }
+  
+  .tech-item p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+
+/* Basic reset and styling */
+body {
+  color: #fffefe;
+  background-color: #484849;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.home h1 {
+  font-size: 3em; /* Adjust the size as needed */
+}
+header {
+  background-color: transparent; /* Semi-transparent for better contrast */
+  padding: 10px 0;
+}
+.navigation {
+  text-align: center;
+}
+
+.navigation a {
+  color: #fff; /* Adjusted for better contrast */
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+.navigation a:hover {
+  color: #dc4c4c; /* Hover effect matching header color */
+  text-decoration: underline;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff; /* Ensure text is readable against background */
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 10px; /* Optional: add padding to prevent images from touching edges */
+}
+
+.photo {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.photo img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: cover; /* Ensure images cover the area */
+  display: block;
+  border-radius: 10px; /* Optional: for rounded corners */
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+  text-align: center;
+}
+
+.modal img {
+  margin-top: 5%;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px; /* Optional: for rounded corners */
+}
+
+.modal p {
+  color: #fff; /* Ensure text is readable */
+  padding: 10px;
+  font-size: 18px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #f1f1f1;
+  font-size: 35px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Show the modal when the target ID is clicked */
+:target {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .photo {
+      width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo {
+      width: 100%;
+  }
+}
+
